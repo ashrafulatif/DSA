@@ -38,7 +38,7 @@ class first_LastElemnetOccur {
             return firstOccur(arr, f, mid - 1, key);
         }
 
-        return foccr;
+
     }
 
     static int lastOccur(int arr[], int f, int l, int key) {
