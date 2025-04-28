@@ -15,6 +15,7 @@ public class nextGreaterElement {
             {
                 s.pop();
             }
+            
             if (s.isEmpty()) // if ther is no value
             {
                 nxtGreater[i] = -1;
