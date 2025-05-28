@@ -13,7 +13,7 @@ public class minAbsoluteDifferencePairs {
 
         int minDiff = 0;
         for (int i =0; i<A.length; i ++){
-            minDiff += A[i] -B[i];
+            minDiff += Math.abs(A[i] -B[i]);
         }
 
         System.out.println("min differnce of pairs is: "+ minDiff);
