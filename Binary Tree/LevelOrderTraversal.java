@@ -43,7 +43,8 @@ public class LevelOrderTraversal {
                 
                Node curNode = q.remove();
 
-               if(curNode == null){
+               if(curNode == null)
+               {
                 System.out.println();
                 if(q.isEmpty()){
                     break;
