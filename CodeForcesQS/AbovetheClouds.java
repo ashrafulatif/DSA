@@ -1,5 +1,4 @@
-import java.util.Scanner;
-
+import java.util.*;
 public class AbovetheClouds {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -8,39 +7,37 @@ public class AbovetheClouds {
         sc.nextLine(); 
 
         while (t-- > 0) {
-           int n = sc.nextInt();
+            int n = sc.nextInt();
             sc.nextLine();
             String str = sc.nextLine();
-           
-            String str1 = "", str2 = "", str3 = "";
 
-            int s = 0, e = str.length() - 1;
-            int mid = s + (e - s) / 2;
-            str3 += str.charAt(mid);
-
-            for (int i = 0; i < mid; i++) {
-                str1 += str.charAt(i);
+            Map<Character, Integer> mp = new HashMap<>();
+            
+            for (int i=0; i<n; i++){
+                char ch = str.charAt(i);
+                mp.put(ch, mp.getOrDefault(ch,0)+1);
             }
+            
+            boolean found =false;
+            for (int i=1 ; i< n-1; i++){
+                char ch = str.charAt(i);
 
-            for (int i = mid + 1; i <= e; i++) {
-                str2 += str.charAt(i);
-            }
-
-            String finalStr = str1 + str2;
-
-            boolean found = false;
-            for (int i = 0; i < finalStr.length(); i++) {
-                if (finalStr.charAt(i) == str3.charAt(0)) {
+                mp.put(ch, mp.get(ch) - 1);
+                if (mp.get(ch) == 0) {
+                    mp.remove(ch);
+                }
+                
+                if(mp.containsKey(ch)){
                     found = true;
                     break;
                 }
+                mp.put(ch, mp.getOrDefault(ch, 0)+1);
             }
-
-            if (found) {
-                System.out.println("YES");
-            } else {
-                System.out.println("NO");
-            }
+            
+            System.out.println(found ? "Yes": "No");
         }
     }
+    
+    
+    
 }
