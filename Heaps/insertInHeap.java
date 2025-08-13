@@ -15,7 +15,7 @@ public class insertInHeap {
                 //swp
                 int temp = arr.get(x);
                 arr.set(x, arr.get(par));
-                arr.set(x, temp);
+                arr.set(par, temp);
 
                 //move up 
                 x = par;
