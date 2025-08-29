@@ -60,7 +60,7 @@ public class nQueen {
     }
 
     public static void main(String[] args) {
-        int n=5;
+        int n=4;
         char board[] [] = new char[n][n];
 
         //initialize the board
