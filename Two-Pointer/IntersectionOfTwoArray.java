@@ -1,6 +1,6 @@
 import java.util.*;
 class IntersectionOfTwoArray {
-    public int[] intersection(int[] nums1, int[] nums2) {
+    public static int[] intersection(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
 
@@ -29,5 +29,16 @@ class IntersectionOfTwoArray {
             res[k] = ans.get(k); 
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        int arr[] = {1,2,2,1};
+        int arr2[]={2,2};
+
+        int ans[] = intersection(arr, arr2);
+
+        for (int i = 0; i < ans.length; i++) {
+            System.out.println(ans[i]);
+        }
     }
 }
