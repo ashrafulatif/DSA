@@ -2,6 +2,40 @@ import java.util.*;
 
 public class MinStack {
 
+    // O(1) approach
+    public class MinStack_1 {
+        private Stack<Integer> stack;
+        private Stack<Integer> minStk;
+
+        public MinStack_1() {
+            stack = new Stack<>();
+            minStk = new Stack<>();
+        }
+
+        public void push(int val) {
+            stack.push(val);
+            if (minStk.isEmpty() || val <= minStk.peek()) {
+                minStk.push(val);
+            }
+        }
+
+        public void pop() {
+            int top = stack.pop();
+            if (top == minStk.peek()) {
+                minStk.pop();
+            }
+        }
+
+        public int top() {
+            return stack.peek();
+        }
+
+        public int getMin() {
+            return minStk.peek();
+        }
+
+    }
+
     private Stack<Integer> stack;
 
     public MinStack() {
@@ -39,7 +73,10 @@ public class MinStack {
 
     public static void main(String[] args) {
 
-        MinStack minStack = new MinStack();
+        
+        MinStack outer = new MinStack();
+        MinStack.MinStack_1 minStack = outer.new MinStack_1();
+
         minStack.push(-2);
         minStack.push(0);
         minStack.push(-3);
@@ -48,13 +85,5 @@ public class MinStack {
         System.out.println(minStack.top()); // 0
         System.out.println(minStack.getMin()); // -2
     }
-}
 
-/**
- * Your MinStack object will be instantiated and called as such:
- * MinStack obj = new MinStack();
- * obj.push(val);
- * obj.pop();
- * int param_3 = obj.top();
- * int param_4 = obj.getMin();
- */
+}
